@@ -15,4 +15,4 @@ Welcome to **Personal Task Manager**! 🎉
 
 ## Style
 
--**npm install @mui/material @emotion/react @emotion/styled**
+- **npm install @mui/material @emotion/react @emotion/styled**
