@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './pages/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   </Router>
