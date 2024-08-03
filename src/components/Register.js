@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button, Container, Typography } from '@material-ui/core';
+import { TextField, Button, Container, Typography } from '@mui/material';
 
 const Register = () => {
   return (
