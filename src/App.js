@@ -1,9 +1,19 @@
+import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-
+import Login from './components/Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
-    <h1>Welcome App Vu Trung Nghia</h1>
+    <Router>
+    <div>
+      <header>
+        <img src={logo} style={{ width: '150px', height: '150px', marginLeft: '685px' }} className="App-logo" alt="logo" />
+      </header>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
+  </Router>
   );
 }
 
