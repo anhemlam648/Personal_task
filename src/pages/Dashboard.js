@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
   //edit
   const EditClick = (taskId) => {
-    navigate(`/editTask/${taskId}`);
+    navigate(`/clickEdit/${taskId}`);
   };
   //delete
   const DeleteClick = async (taskId) => {
