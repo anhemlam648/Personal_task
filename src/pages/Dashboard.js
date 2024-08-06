@@ -1,15 +1,35 @@
-import React from 'react';
-import { TextField, Button, Container, Typography } from '@mui/material';
-import { Grid, Paper } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Container, Typography, Grid, Paper, Button } from '@mui/material';
+import axios from 'axios';
 
 const Dashboard = () => {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    // List Task
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get('/api/tasks');
+        setTasks(response.data);
+      } catch (error) {
+        console.error('Error fetching tasks:', error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
   return (
     <Container maxWidth="lg">
       <Typography variant="h4" align="center">Dashboard</Typography>
-      <Grid container spacing={3} style={{marginTop: '30px'}}>
+      <Grid container spacing={3} style={{ marginTop: '30px' }}>
         <Grid item xs={12} md={4}>
           <Paper>
             <Typography variant="h6">Today's Tasks</Typography>
+            {/* Get Task */}
+            {tasks.map(task => (
+              <Typography key={task._id}>{task.title}</Typography>
+            ))}
           </Paper>
         </Grid>
         <Grid item xs={12} md={8}>
@@ -18,7 +38,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Button variant="contained" color="primary" style={{marginTop: '50px'}}>Add Task</Button>
+      <Button variant="contained" color="primary" style={{ marginTop: '50px' }}>Add Task</Button>
     </Container>
   );
 };
