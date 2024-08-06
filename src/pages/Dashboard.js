@@ -47,7 +47,12 @@ const Dashboard = () => {
             <Typography variant="h6">Today's Tasks</Typography>
             {/* Get Task */}
             {tasks.map(task => (
-              <Typography key={task._id}>{task.title}</Typography>
+              <Typography key={task._id} style={{ padding: '16px', marginBottom: '10px' }}>
+                <Typography variant="body1">Title: {task.title}</Typography>
+                <Typography variant="body2">Description:{task.description}</Typography>
+                <Typography variant="body2" color="textSecondary">Due Date: {task.dueDate}</Typography>
+                <Typography variant="body2" color="textSecondary">Priority: {task.priority}</Typography>
+              </Typography>
             ))}
              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
               <IconButton color="primary" onClick={() => EditClick(task._id)}>
