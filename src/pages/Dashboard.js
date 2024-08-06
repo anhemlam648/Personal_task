@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Typography, Grid, Paper, Button } from '@mui/material';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -18,7 +18,11 @@ const Dashboard = () => {
 
     fetchTasks();
   }, []);
+  const navigate = useNavigate();
 
+  const AddClick = () => {
+    navigate('/clickAdd');
+  };
   return (
     <Container maxWidth="lg">
       <Typography variant="h4" align="center">Dashboard</Typography>
@@ -38,7 +42,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Button variant="contained" color="primary" style={{ marginTop: '50px' }}>Add Task</Button>
+      <Button variant="contained" color="primary" style={{ marginTop: '50px' }} onClick={AddClick}>Add Task</Button>
     </Container>
   );
 };
