@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './pages/Dashboard';
+import AddTask from './pages/AddTask';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Login />} />
+        <Route path="/clickAdd" element={<AddTask />} />
       </Routes>
     </div>
   </Router>
