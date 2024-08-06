@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Typography, Grid, Paper, Button } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import IconEdit from '@mui/icons-material/Edit';
+import IconDelete from '@mui/icons-material/Delete';
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -49,10 +51,10 @@ const Dashboard = () => {
             ))}
              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
               <IconButton color="primary" onClick={() => EditClick(task._id)}>
-                <EditIcon />
+                <IconEdit />
               </IconButton>
               <IconButton color="secondary" onClick={() => DeleteClick(task._id)}>
-                <DeleteIcon />
+                <IconDelete />
               </IconButton>
             </div>
           </Paper>
