@@ -19,9 +19,22 @@ const Dashboard = () => {
     fetchTasks();
   }, []);
   const navigate = useNavigate();
-
+  //add
   const AddClick = () => {
     navigate('/clickAdd');
+  };
+  //edit
+  const EditClick = (taskId) => {
+    navigate(`/editTask/${taskId}`);
+  };
+  //delete
+  const DeleteClick = async (taskId) => {
+    try {
+      await axios.delete(`/api/tasks/delete/${taskId}`);
+      setTasks(tasks.filter(task => task._id !== taskId));
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
   return (
     <Container maxWidth="lg">
@@ -34,6 +47,14 @@ const Dashboard = () => {
             {tasks.map(task => (
               <Typography key={task._id}>{task.title}</Typography>
             ))}
+             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+              <IconButton color="primary" onClick={() => EditClick(task._id)}>
+                <EditIcon />
+              </IconButton>
+              <IconButton color="secondary" onClick={() => DeleteClick(task._id)}>
+                <DeleteIcon />
+              </IconButton>
+            </div>
           </Paper>
         </Grid>
         <Grid item xs={12} md={8}>
